@@ -23,16 +23,11 @@ public class Pessoa {
     }
 
     public void setCpf(String cpf) {
-        System.out.println(Integer.parseInt(cpf));
-        if(cpf.length() == 11){
-            try{
-                Integer.parseInt(cpf);
-                this.cpf = cpf;
-            }
-            catch(Exception e){
-                System.out.println("CPF Invalido.");
-                return;
-            }
+        if(cpf.length() == 11 && cpf.matches("-?\\d+(\\.\\d+)?")){
+            this.cpf = cpf;
+        }
+        else{
+            System.out.println("CPF invalido.");
         }
     }
 
